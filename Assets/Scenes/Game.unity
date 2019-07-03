@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 89749950}
+  - component: {fileID: 89749951}
   - component: {fileID: 89749949}
   - component: {fileID: 89749948}
   - component: {fileID: 89749947}
@@ -457,6 +458,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 2, z: 0}
+--- !u!114 &89749951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89749944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a0fa8018c68194bad406c64496a001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHp: 100
+  maxHp: 100
+  scoreToGive: 1
+  moveSpeed: 3
+  attackRange: 10
+  yPathOffset: 0.9
 --- !u!1 &111356110
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpForce: 4
-  lookSensitivity: 5
+  lookSensitivity: 1
   maxLookX: 90
   minLookX: -90
 --- !u!114 &155520346
@@ -770,7 +789,7 @@ MonoBehaviour:
   bulletPool: {fileID: 155520347}
   muzzle: {fileID: 624402277}
   curAmmo: 30
-  maxAmmo: 100
+  maxAmmo: 90
   infiniteAmmo: 0
   bulletSpeed: 50
   shootRate: 0.1
