@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 155520344}
   - component: {fileID: 155520345}
   - component: {fileID: 155520346}
+  - component: {fileID: 155520347}
   - component: {fileID: 155520343}
   - component: {fileID: 155520342}
   - component: {fileID: 155520341}
@@ -330,8 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33acf67b34efce047bfc97cff96b9ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2212290774792774083, guid: 19373ab28ffa9c54eb64c98c04d4c7c6,
-    type: 3}
+  bulletPool: {fileID: 155520347}
   muzzle: {fileID: 624402277}
   curAmmo: 100
   maxAmmo: 100
@@ -339,6 +339,21 @@ MonoBehaviour:
   bulletSpeed: 50
   shootRate: 0.1
   isPlayer: 0
+--- !u!114 &155520347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155520339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4109b8cb75f044797bbdbb51c45655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefab: {fileID: 2212290774792774083, guid: 19373ab28ffa9c54eb64c98c04d4c7c6,
+    type: 3}
+  createOnStart: 20
 --- !u!1 &624402276
 GameObject:
   m_ObjectHideFlags: 0
