@@ -16,17 +16,23 @@ public class Player : MonoBehaviour
   private float rotX;              //current x rotation of camera
   private Camera cam;              //camera var
   private Rigidbody rig;           //body var
+  private Weapon weapon;
 
   void Awake()
   {
     //get components
     cam = Camera.main;
     rig = GetComponent<Rigidbody>();
+    weapon = GetComponent<Weapon>();
+
+    //disable mouse
+    Cursor.lockState = CursorLockMode.Locked;
   }
 
   void Update()
   {
     Move();
+    CamLook();
 
     if(Input.GetButtonDown("Jump"))
     {
@@ -35,7 +41,15 @@ public class Player : MonoBehaviour
 
     }
 
-    CamLook();
+    if(Input.GetButton("Fire1"))
+    {
+
+      if(weapon.CanShoot())
+      {
+        weapon.Shoot();
+      }
+
+    }
   }
 
   //move horizontally based on movement inputs
