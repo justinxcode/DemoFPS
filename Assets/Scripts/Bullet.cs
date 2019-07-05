@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
   public float lifetime;
   private float shootTime;
 
+  public GameObject hitParticle;
+
   private void OnEnable()
   {
 
@@ -44,6 +46,10 @@ public class Bullet : MonoBehaviour
       other.GetComponent<Enemy>().TakeDamage(damage);
 
     }
+
+    //create hit particle
+    GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+    Destroy(obj, 0.5f);
 
     //disable bullet
     gameObject.SetActive(false);
