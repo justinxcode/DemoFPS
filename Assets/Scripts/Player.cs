@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+  [Header("Stats")]
+  public int curHp;
+  public int maxHp;
+
   [Header("Movement")]
   public float moveSpeed;          //movement speed in units per second
   public float jumpForce;          //force applied upward
@@ -18,7 +23,7 @@ public class Player : MonoBehaviour
   private Rigidbody rig;           //body var
   private Weapon weapon;
 
-  void Awake()
+  private void Awake()
   {
     //get components
     cam = Camera.main;
@@ -29,7 +34,7 @@ public class Player : MonoBehaviour
     Cursor.lockState = CursorLockMode.Locked;
   }
 
-  void Update()
+  private void Update()
   {
     Move();
     CamLook();
@@ -53,7 +58,7 @@ public class Player : MonoBehaviour
   }
 
   //move horizontally based on movement inputs
-  void Move()
+  private void Move()
   {
     //get x a z input
     float x = Input.GetAxis("Horizontal") * moveSpeed;
@@ -67,7 +72,7 @@ public class Player : MonoBehaviour
 
   }
 
-  void CamLook()
+  private void CamLook()
   {
 
     float y = Input.GetAxis("Mouse X") * lookSensitivity;
@@ -80,7 +85,7 @@ public class Player : MonoBehaviour
     transform.eulerAngles += Vector3.up * y;
   }
 
-  void TryJump()
+  private void TryJump()
   {
 
     Ray ray = new Ray(transform.position, Vector3.down);
@@ -91,6 +96,27 @@ public class Player : MonoBehaviour
       rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
     }
+
+  }
+
+  public void TakeDamage(int damage)
+  {
+
+    curHp -= damage;
+
+    if(curHp <= 0)
+    {
+
+      Die();
+
+    }
+
+  }
+
+  private void Die()
+  {
+
+    
 
   }
 

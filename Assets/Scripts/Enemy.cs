@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
   private Weapon weapon;
   private GameObject target;
 
-  void Start()
+  private void Start()
   {
     //get components
     weapon = GetComponent<Weapon>();
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
   }
 
-  void Update()
+  private void Update()
   {
 
     float dist = Vector3.Distance(transform.position, target.transform.position);
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 
   }
 
-  void ChaseTarget()
+  private void ChaseTarget()
   {
 
     if(path.Count == 0)
@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
 
   }
 
-  void UpdatePath()
+  private void UpdatePath()
   {
 
     //calculate path to target
@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
 
   }
 
-  void Die()
+  private void Die()
   {
 
     Destroy(gameObject);
