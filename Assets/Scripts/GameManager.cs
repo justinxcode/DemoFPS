@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     Time.timeScale = gamePaused == true ? 0.0f : 1.0f;
 
     Cursor.lockState = gamePaused == true ? CursorLockMode.None : CursorLockMode.Locked;
+    Cursor.visible = gamePaused == true ? true : false;
 
     //toggle pause menu
     GameUI.instance.TogglePauseMenu(gamePaused);
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
     Time.timeScale = 0.0f;
     gamePaused = true;
     Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
 
   }
 
@@ -83,6 +85,7 @@ public class GameManager : MonoBehaviour
     Time.timeScale = 0.0f;
     gamePaused = true;
     Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
 
   }
 

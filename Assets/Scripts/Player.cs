@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     //disable mouse
     Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
   }
 
   private void Start()
