@@ -49,6 +49,7 @@ public class Bullet : MonoBehaviour
 
     //create hit particle
     GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+
     Destroy(obj, 0.5f);
 
     //disable bullet

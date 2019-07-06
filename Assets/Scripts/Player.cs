@@ -34,8 +34,25 @@ public class Player : MonoBehaviour
     Cursor.lockState = CursorLockMode.Locked;
   }
 
+  private void Start()
+  {
+    //initialize UI
+    GameUI.instance.UpdateHealthBar(curHp, maxHp);
+    GameUI.instance.UpdateScoreText(0);
+    GameUI.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
+  }
+
   private void Update()
   {
+
+    //don't update if paused
+    if(GameManager.instance.gamePaused == true)
+    {
+
+      return;
+
+    }
+
     Move();
     CamLook();
 
@@ -104,6 +121,8 @@ public class Player : MonoBehaviour
 
     curHp -= damage;
 
+    GameUI.instance.UpdateHealthBar(curHp, maxHp);
+
     if(curHp <= 0)
     {
 
@@ -116,7 +135,7 @@ public class Player : MonoBehaviour
   private void Die()
   {
 
-    
+    GameManager.instance.LoseGame();
 
   }
 
@@ -125,12 +144,16 @@ public class Player : MonoBehaviour
 
     curHp = Mathf.Clamp(curHp + amountToGive, 0, maxHp);
 
+    GameUI.instance.UpdateHealthBar(curHp, maxHp);
+
   }
 
   public void GiveAmmo(int amountToGive)
   {
 
     weapon.curAmmo = Mathf.Clamp(weapon.curAmmo + amountToGive, 0, weapon.maxAmmo);
+
+    GameUI.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
 
   }
 
