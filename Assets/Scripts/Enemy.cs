@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
   private Weapon weapon;
   private GameObject target;
 
+
   private void Start()
   {
     //get components
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour
   private void ChaseTarget()
   {
 
-    if(path.Count == 0)
+    if(path == null || path.Count == 0)
     {
 
       return;
